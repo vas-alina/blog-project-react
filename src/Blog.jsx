@@ -17,6 +17,7 @@ export const Blog = () => {
       <Header />
       <Content>
         <H2>Контент страницы</H2>
+        <i className="fa fa-calendar-o" aria-hidden="true"></i>
         <Routes>
           <Route path="/" element={<div>Главная страница</div>} />
           <Route path="/login" element={<div>Авторизация</div>} />

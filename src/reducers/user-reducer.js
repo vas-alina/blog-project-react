@@ -3,7 +3,7 @@ import { ROLE } from "../constans/role";
 const initialUserState = {
   id: null,
   login: null,
-  role: ROLE.GUEST,
+  roleId: ROLE.GUEST,
   session: null,
 };
 export const userReducer = (state = initialUserState, action) => {

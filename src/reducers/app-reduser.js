@@ -1,15 +1,15 @@
 import { ACTION_TYPE } from "../action";
 
 const initialAppState = {
-    wasLogout: false,
+  wasLogout: false,
 };
-export const postReducer = (state = initialAppState, action) => {
+export const appReducer = (state = initialAppState, action) => {
   switch (action.type) {
     case ACTION_TYPE.LOGOUT:
-        return {
-            ...state,
-            wasLogout: !state.wasLogout,
-        }
+      return {
+        ...state,
+        wasLogout: !state.wasLogout,
+      };
     default:
       return state;
   }

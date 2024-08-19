@@ -13,7 +13,7 @@ import { logout } from "../../../../action";
 const RightAligned = styled.div`
   display: flex;
   justify-content: flex-end;
-  aligh-items: center;
+  align-items: center;
 `;
 
 const StyledIcon = styled.div`
@@ -21,7 +21,6 @@ const StyledIcon = styled.div`
     cursor: pointer;
   }
 `;
-
 const UserName = styled.div`
   font-size: 18px;
   font-weight: bold;
@@ -32,12 +31,14 @@ const ControlPanelContainer = ({ className }) => {
   const login = useSelector(selectUserLogin);
   const dispatch = useDispatch();
   const session = useSelector(selectUserSession);
+  console.log("roleId:", roleId); // Убедитесь, что значение roleId ожидаемое
+  console.log("ROLE.GUEST:", ROLE.GUEST);
   return (
     <div className={className}>
       <RightAligned>
-        {roleId === ROLE.GUEST ? (
+        {ROLE.GUEST ? (
           <Button>
-            <Link to="/login">Войти</Link>{" "}
+            <Link to="/login">Войти</Link>
           </Button>
         ) : (
           <>
@@ -51,7 +52,6 @@ const ControlPanelContainer = ({ className }) => {
             </StyledIcon>
           </>
         )}
-        <Button></Button>
       </RightAligned>
       <RightAligned>
         <StyledIcon onClick={() => navigate(-1)}>

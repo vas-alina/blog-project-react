@@ -1,13 +1,16 @@
-import { createRoot } from "react-dom/client";
-import { Blog } from "./Blog";
+import ReactDOM from "react-dom/client";
+
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { Blog } from "./Blog";
 import "./index.css";
-createRoot(document.getElementById("root")).render(
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <BrowserRouter>
-  <Provider store={store}>
-    <Blog />
-  </Provider>
+    <Provider store={store}>
+      <Blog />
+    </Provider>
   </BrowserRouter>
 );

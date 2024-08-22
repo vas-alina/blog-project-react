@@ -27,23 +27,72 @@
       "password": "111111",
       "registed_at": "Fri Jun 18 2055 ",
       "role_id": 2
+    },
+    {
+      "id": "5208",
+      "login": "1111111111",
+      "password": "111111",
+      "registed_at": "Mon Oct 30 2051 ",
+      "role_id": 2
+    },
+    {
+      "id": "fa02",
+      "login": "222222",
+      "password": "222222",
+      "registed_at": "Wed Jun 07 2034 ",
+      "role_id": 2
+    },
+    {
+      "id": "cbfb",
+      "login": "333333",
+      "password": "333333",
+      "registed_at": " hu Apr 29 2055 ",
+      "role_id": 2
+    },
+    {
+      "id": "e978",
+      "login": "444444",
+      "password": "444444",
+      "registed_at": "Sat Dec 27 2064 ",
+      "role_id": 2
+    },
+    {
+      "id": "2cdd",
+      "login": "ivan",
+      "password": "qwerty123",
+      "registed_at": "Mon Jun 27 2039 ",
+      "role_id": 2
+    },
+    {
+      "id": "afe0",
+      "login": "Ivan4",
+      "password": "qwerty123",
+      "registed_at": "Sun Jan 20 2047 ",
+      "role_id": 2
+    },
+    {
+      "id": "9753",
+      "login": "Ivan5",
+      "password": "qwerty123",
+      "registed_at": "Sun Aug 21 2061 ",
+      "role_id": 2
     }
   ],
   "roles": [
     {
-      "id": 0,
+      "id": "0",
       "name": "Администратор"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "Модератор"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Читатель"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Гость"
     }
   ],

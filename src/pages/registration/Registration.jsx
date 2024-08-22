@@ -12,7 +12,6 @@ import { selectUserRole } from "../../selectors";
 import { ROLE } from "../../constans/role";
 import styled from "styled-components";
 
-
 const regFormSchema = yup.object().shape({
   login: yup
     .string()
@@ -61,6 +60,7 @@ const RegistrationContainer = ({ className }) => {
 
   const onSubmit = ({ login, password }) => {
     server.register(login, password).then(({ error, res }) => {
+      console.log(res);
       if (error) {
         setServerError(` Ошибка запроса:  ${error}`);
         return;
@@ -85,17 +85,23 @@ const RegistrationContainer = ({ className }) => {
         <Input
           type="text"
           placeholder="Логин..."
-          {...register("login", { onChange: () => setServerError(null) })}
+          {...register("login", {
+            onChange: () => setServerError(null),
+          })}
         />
         <Input
           type="password"
           placeholder="Пароль..."
-          {...register("password", { onChange: () => setServerError(null) })}
+          {...register("password", {
+            onChange: () => setServerError(null),
+          })}
         />
         <Input
           type="password"
           placeholder="Повторите пароль..."
-          {...register("passcheck", { onChange: () => setServerError(null) })}
+          {...register("passcheck", {
+            onChange: () => setServerError(null),
+          })}
         />
         <Button type="submit" disabled={!!formError}>
           Зарегистрироваться

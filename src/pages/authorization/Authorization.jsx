@@ -1,16 +1,17 @@
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { server } from "../../bff";
-import { useState } from "react";
 import { AuthFormError, Button, H2, Input } from "../../components";
-import { Link, Navigate } from "react-router-dom";
-import styled from "styled-components";
+import { useResetForm } from "../../hooks";
 import { setUser } from "../../action";
 import { selectUserRole } from "../../selectors";
 import { ROLE } from "../../constans/role";
-import { useResetForm } from "../../hooks";
+import styled from "styled-components";
+
 const authFormSchema = yup.object().shape({
   login: yup
     .string()

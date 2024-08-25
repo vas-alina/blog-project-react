@@ -3,28 +3,35 @@ import { UserRow, TableRow } from "./components";
 import { useServerRequest } from "../../hooks";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ROLE } from "../../constans/role";
 
-// eslint-disable-next-line react/prop-types
 const UsersContainer = ({ className }) => {
   const [users, setUsers] = useState([]);
-  const [roles, setRoles] = useState(null);
-  const [errorMessage, setErrorMessage] = useState([]);
+  const [roles, setRoles] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
+
   const requestServer = useServerRequest();
-  //   const dispatch = useDispatch();
   useEffect(() => {
-    Promise.all([requestServer("fetchUser"), requestServer("fetchRoles")]).then(
-      ([usersRes, rolesRes]) => {
-        if (usersRes.error || rolesRes.error) {
-          setErrorMessage(usersRes.error || rolesRes.error);
-          return;
-        }
-
-        setUsers(usersRes.res);
-        setRoles(rolesRes.res);
+    Promise.all([
+      requestServer("fetchUsers"),
+      requestServer("fetchRoles"),
+    ]).then(([usersRes, rolesRes]) => {
+      if (usersRes.error || rolesRes.error) {
+        setErrorMessage(usersRes.error || rolesRes.error);
+        return;
       }
-    );
-  }, [requestServer]);
 
+      setUsers(usersRes.res);
+      setRoles(rolesRes.res);
+    });
+  }, [requestServer, shouldUpdateUserList]);
+
+  const onUserRemove = (userId) => {
+    requestServer("removeUser", userId).then(() => {
+      setShouldUpdateUserList(!shouldUpdateUserList);
+    });
+  };
   return (
     <div className={className}>
       <Content error={errorMessage}>
@@ -38,10 +45,12 @@ const UsersContainer = ({ className }) => {
           {users.map(({ id, login, registeredAt, roleId }) => (
             <UserRow
               key={id}
+              id={id}
               login={login}
               registeredAt={registeredAt}
               roleId={roleId}
-              roles={roles}
+              roles={roles.filter(({ id: roleId }) => roleId !== ROLE.GUEST)}
+              onUserRemove={() => onUserRemove(id)}
             />
           ))}
         </div>
@@ -56,4 +65,5 @@ export const Users = styled(UsersContainer)`
   margin: 0 auto;
   align-items: center;
   width: 570px;
+  font-size: 18px;
 `;

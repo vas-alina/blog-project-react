@@ -25,4 +25,5 @@ export const Header = styled(HeaderContainer)`
   padding: 20px 40px;
   box-shadow: 0px -2px 17px #000;
   background-color: #ffff;
+  z-index: 10;
 `;

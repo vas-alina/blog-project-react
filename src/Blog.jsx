@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Header, Footer } from "./components";
+import { Modal } from "./components";
 import { Authorization, Registration, Users } from "./pages";
 import { Post } from "./pages";
 import { useDispatch } from "react-redux";
@@ -52,6 +53,7 @@ export const Blog = () => {
         </Routes>
       </Page>
       <Footer />
+      <Modal />
     </AppColumn>
   );
 };

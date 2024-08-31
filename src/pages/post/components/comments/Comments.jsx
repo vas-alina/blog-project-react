@@ -8,13 +8,13 @@ import { addCommentAsync } from "../../../../action";
 import styled from "styled-components";
 const CommentsContainer = ({ className, comments, postId }) => {
   const [newComment, setNewComment] = useState("");
-  const userId = useSelector(selectUserId)
-  const dispatch= useDispatch()
-  const requestServer = useServerRequest()
-
+  const userId = useSelector(selectUserId);
+  const dispatch = useDispatch();
+  const requestServer = useServerRequest();
 
   const onNewCommentAdd = (userId, postId, content) => {
     dispatch(addCommentAsync(requestServer, userId, postId, content));
+    setNewComment("");
   };
   return (
     <div className={className}>
@@ -48,21 +48,21 @@ const CommentsContainer = ({ className, comments, postId }) => {
 };
 
 export const Comments = styled(CommentsContainer)`
-  display: flex;
-  margin: 20px auto;
+  /* display: flex; */
+  margin: 0 auto;
   width: 580px;
+  /* margin: 20px 0 0; */
+
   & .new-comment {
     display: flex;
     width: 100%;
-    resize: none;
     margin: 20px 0 0;
   }
 
   & .new-comment textarea {
-    width: 100%;
-    resize: none;
+    width: 550px;
     height: 120px;
     font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
   }
 `;

@@ -26,11 +26,10 @@ export const Blog = () => {
   useLayoutEffect(() => {
     const currentUserDataJSON = sessionStorage.getItem("userData");
 
-    if (!currentUserData) {
+    if (!currentUserDataJSON) {
       return;
     }
-
-    const currentUserData = JSON.parse(currentUserDataJSON)
+    const currentUserData = JSON.parse(currentUserDataJSON);
     dispatch(
       setUser({
         ...currentUserData,

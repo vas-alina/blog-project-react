@@ -8,4 +8,5 @@ export * from "./remove-comment-async";
 export * from "./set-post-data";
 export * from "./set-user";
 export * from "./save-post-async"
-
+export * from "./remove-post-async"
+export * from './reset-post-data'

@@ -14,3 +14,4 @@ export * from "./set-user-role";
 export * from "./update-post";
 export * from "./delete-post";
 export * from "./add-post";
+export * from './get-posts';

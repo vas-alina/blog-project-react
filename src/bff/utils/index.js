@@ -1,2 +1,2 @@
 export * from "./generate-date";
-export * from './get-commens-count'
+export * from './get-comments-count'

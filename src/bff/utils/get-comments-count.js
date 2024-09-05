@@ -1,4 +1,4 @@
-export const getCommensCount = (comments = [], postId) => {
+export const getCommentsCount = (comments = [], postId) => {
     const postComments = comments.filter(
         ({ postId: commentPostId }) => commentPostId === postId,
     );

@@ -1,16 +1,50 @@
 import { getComments, getPosts } from "../api";
-import { getCommensCount } from "../utils";
+import { getCommentsCount } from "../utils";
 
-export const fetchPosts = async () => {
-
-
-    const [posts, comments] = await Promise.all([getPosts(), getComments()])
-
+export const fetchPosts = async (page, limit) => {
+    const [{ posts, links }, comments] = await Promise.all([
+        getPosts(page, limit),
+        getComments()])
+    console.log(links)
     return {
         error: null,
-        res: posts.map((post) => ({
-            ...post,
-            commentsCount: getCommensCount(comments, post.id)
-        })),
+        res: {
+            posts: posts.map((post) => ({
+                ...post,
+                commentsCount: getCommentsCount(comments, post.id),
+            })),
+            links,
+        },
     };
 };
+// import { getComments, getPosts } from "/src/bff/api";
+// import { getCommentsCount } from "/src/bff/utils"; // исправлено имя функции
+
+// export const fetchPosts = async (page, limit) => {
+//     try {
+//         // Запрос данных параллельно
+//         const [{ posts, links }, comments] = await Promise.all([
+//             getPosts(page, limit),
+//             getComments()
+
+//         ]);
+//         console.log(links)
+//         // Возвращаем посты с добавленным количеством комментариев
+//         return {
+//             error: null,
+//             res: {
+//                 posts: posts.map((post) => ({
+//                     ...post,
+//                     commentsCount: getCommentsCount(comments, post.id), // исправлено имя функции
+//                 })),
+//                 links,
+//             },
+//         };
+//     } catch (error) {
+//         // Обрабатываем ошибку, если один из запросов не удался
+//         return {
+//             error: error.message || "Произошла ошибка",
+//             res: null,
+//         };
+//     }
+// };

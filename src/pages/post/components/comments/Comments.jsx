@@ -6,6 +6,7 @@ import { Icon } from "../../../../components";
 import { selectUserId } from "../../../../selectors";
 import { addCommentAsync } from "../../../../action";
 import styled from "styled-components";
+
 const CommentsContainer = ({ className, comments, postId }) => {
   const [newComment, setNewComment] = useState("");
   const userId = useSelector(selectUserId);

@@ -1,6 +1,8 @@
+import PropTypes from "prop-types";
 import { Input, Icon } from "../../../../components";
 import styled from "styled-components";
 
+// eslint-disable-next-line react/prop-types
 const SearchContainer = ({ className, searchPhrase, onChange }) => {
   return (
     <div className={className}>
@@ -31,3 +33,7 @@ export const Search = styled(SearchContainer)`
     right: 9px;
   }
 `;
+SearchContainer.propTypes = {
+  searchPhrase: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

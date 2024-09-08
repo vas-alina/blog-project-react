@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Icon } from "../../../../components";
@@ -25,7 +26,6 @@ const PostCardContainer = ({
                 size="18px"
                 onClick={() => {}}
               />
-
               {publishedAt}
             </div>
             <div className="comment-count">
@@ -81,3 +81,10 @@ export const PostCard = styled(PostCardContainer)`
     display: flex;
   }
 `;
+PostCardContainer.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+  commentsCount: PropTypes.number.isRequired,
+}

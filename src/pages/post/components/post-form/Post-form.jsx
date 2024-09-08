@@ -7,6 +7,7 @@ import { SpecialPanel } from "../special-panel/Special-panel";
 import { sanitazeContent } from "./utils";
 import { useServerRequest } from "../../../../hooks";
 import { useNavigate } from "react-router";
+import { PROP_TYPE } from "../../../../constans";
 
 const PostFormContainer = ({
   className,
@@ -89,3 +90,6 @@ export const PostForm = styled(PostFormContainer)`
     white-space: pre-line;
   }
 `;
+PostFormContainer.propTypes = {
+  post: PROP_TYPE.POST.isRequired
+}

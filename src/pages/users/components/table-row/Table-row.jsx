@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 export const TableRowContainer = ({ children, className }) => (
@@ -27,3 +28,6 @@ export const TableRow = styled(TableRowContainer)`
     width: auto;
   }
 `;
+ TableRowContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+ }

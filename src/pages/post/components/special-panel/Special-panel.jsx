@@ -1,13 +1,18 @@
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { CLOSE_MODAL, openModal, removePostAsync } from "../../../../action";
 import { Icon } from "../../../../components";
-import styled from "styled-components";
 import { useServerRequest } from "../../../../hooks";
 import { useNavigate } from "react-router";
+import { checkAccess } from "../../../../utils";
+import { ROLE } from "../../../../constans";
+import styled from "styled-components";
+import { selectUserRole } from "../../../../selectors";
 const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
   const dispatch = useDispatch();
   const requestServer = useServerRequest();
   const navigate = useNavigate();
+  const userRole = useSelector(selectUserRole)
   const onPostRemove = (id) => {
     dispatch(
       openModal({
@@ -22,7 +27,7 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
       })
     );
   };
-
+  const isAdmin = checkAccess([ROLE.ADMIN], userRole);
   return (
     <div className={className}>
       <div className="published-at">
@@ -37,7 +42,7 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
         )}
         {publishedAt}
       </div>
-      <div className="buttons">
+     { isAdmin && (<div className="buttons">
         {editButton}
         {publishedAt && (
           <Icon
@@ -48,6 +53,7 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
           />
         )}
       </div>
+  )}
     </div>
   );
 };

@@ -13,6 +13,13 @@
       "password": "qwe123",
       "registed_at": "Sun Mar 25 2057 ",
       "role_id": 1
+    },
+    {
+      "id": "6e45",
+      "login": "reader",
+      "password": "qwe123",
+      "registed_at": "Sat Jan 07 2062 ",
+      "role_id": 2
     }
   ],
   "roles": [
@@ -128,32 +135,18 @@
       "content": "первый"
     },
     {
-      "id": "4b6e",
-      "author_id": "001",
-      "post_id": "003",
-      "published_at": " hu Oct 05 2034 ",
-      "content": "второй"
-    },
-    {
-      "id": "96e1",
-      "author_id": "001",
-      "post_id": "006",
-      "published_at": "Fri Mar 03 2056 ",
-      "content": "jtyhgtfrds"
-    },
-    {
-      "id": "6367",
-      "author_id": "001",
-      "post_id": "004",
-      "published_at": " hu Jul 26 2046 ",
-      "content": "fdsa"
-    },
-    {
       "id": "0eac",
       "author_id": "001",
       "post_id": "004",
       "published_at": " ue Apr 15 2064 ",
       "content": "коммент на второй пост"
+    },
+    {
+      "id": "d8f7",
+      "author_id": "ba48",
+      "post_id": "003",
+      "published_at": " ue Aug 26 2053 ",
+      "content": "комментарий от login2"
     }
   ],
   "sessions": [
@@ -224,14 +217,14 @@
       }
     },
     {
-      "id": "ebde",
-      "hash": "0.21185355547892692484879262337926775217056274414063",
+      "id": "9824",
+      "hash": "0.95744287947817929840255146700656041502952575683594",
       "user": {
-        "id": "ba48",
-        "login": "login2",
+        "id": "001",
+        "login": "anton",
         "password": "qwe123",
-        "registeredAt": "Sun Mar 25 2057 ",
-        "roleId": 1
+        "registeredAt": "2025-09-22",
+        "roleId": 0
       }
     }
   ]

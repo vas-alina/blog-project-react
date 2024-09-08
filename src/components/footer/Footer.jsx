@@ -38,7 +38,7 @@ const FooterContainer = ({ className }) => {
 export const Footer = styled(FooterContainer)`
   display: flex;
   justify-content: space-between;
-  align-itens: center;
+  align-items: center;
   width: 1000px;
   height: 120px;
   padding: 20px 40px;
